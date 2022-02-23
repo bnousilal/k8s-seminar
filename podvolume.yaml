@@ -7,13 +7,14 @@ spec:
   - name: animal
     image: supergiantkir/animals:bear
     volumeMounts:
-    - name: redis-persistent-storage
+    - name: animal-persistent-storage
       mountPath: /tmp
   - name: music
     image: yanivomc/spring-music:latest
     volumeMounts:
-    - name: redis-persistent-storage
+    - name: animal-persistent-storage
       mountPath: /tmp/
   volumes:
-  - name: redis-persistent-storage
-    emptyDir: {}
+  - name: animal-persistent-storage
+    hostpath:
+      path: /tmp/files/
