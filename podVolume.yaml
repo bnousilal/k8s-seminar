@@ -4,13 +4,13 @@ metadata:
   name: redis
 spec:
   containers:
-  - name: nginx
-    image: nginx:latest
+  - name: animal
+    image: supergiantkir/animals:bear
     volumeMounts:
     - name: redis-persistent-storage
       mountPath: /data/redis
-  - name: redis
-    image: redis:5.0.4
+  - name: music
+    image: yanivomc/spring-music:latest
     volumeMounts:
     - name: redis-persistent-storage
       mountPath: /app/data
