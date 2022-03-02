@@ -1,17 +1,24 @@
-kind: Service      # Create new service
-apiVersion: v1     
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: my-service # Name of the service
+  name: spring-deployment
 spec:
   selector:
-    app: MyApp    # Run on any pod(s) with label - app: myapp
-  ports:          # Map incoming port to target port
-  - name: http    # Setting multiple ports listterns 
-    protocol: TCP
-    port: 80
-    targetPort: 9376
-  - name: https
-    protocol: TCP
-    port: 443
-    targetPort: 8080
-  type: LoadBalancer  
+    matchLabels:
+      app: spring
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: spring
+    spec:
+      containers:
+      - name: spring-music
+        image: yanivomc/spring-music:latest
+        ports:
+        - containerPort: 8080
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 100%
+      maxUnavailable: 0%
