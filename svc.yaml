@@ -1,13 +1,13 @@
-kind: Service     
+kind: Service # Create service     
 apiVersion: v1
 metadata:
-  name: spring-service
+  name: animals-srv
 spec:
   selector:
-    app: spring   
-  ports:         
-  - name: http   
+    app: animals  # Run on any pod with nginx label
+  ports:          # Map ports
+  - name: http    # Multiple ports listterns
     protocol: TCP
     port: 80
-    targetPort: 8080
+    targetPort: 80
   type: LoadBalancer
