@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: cuda-test
   labels:
-  app: label
+    app: label_nousi
 spec:
   containers:
     - name: cuda-test
