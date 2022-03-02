@@ -19,6 +19,6 @@ spec:
         image: nginx:1.7.9
         ports:
         - containerPort: 80
-        StrategyType:           RollingUpdate
-          MinReadySeconds:        0
-          RollingUpdateStrategy:  25% max unavailable, 25% max surge
+        StrategyType: RollingUpdate
+          MinReadySeconds: 0
+          RollingUpdateStrategy: 25% max unavailable, 25% max surge
